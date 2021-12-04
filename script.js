@@ -1,46 +1,45 @@
-window.addEventListener("load", getColor, false)
-window.addEventListener("load", sketchPad, false)
+//Create sketch pad
+const sketchPad = document.querySelector('.sketch-pad');
+const defaultSize = 32
 
-//Change size of drawing pad
-const drawingPad = document.querySelector('.sketch-pad');
-
-function sizeOfDrawingPad(size) {
+function createSketchPad(size) {
     for (let i = 0; i < size; i++) {
         let boxes = document.createElement('div')
         boxes.className = "boxes"
-        boxes.id = "box" + i
-        drawingPad.append(boxes)
+        sketchPad.append(boxes)
     }
 }
 
-sizeOfDrawingPad(1024);
+createSketchPad(defaultSize * defaultSize);
 
+//Change size of sketchPad
 const sizeSlider = document.querySelector(".slider");
-
 sizeSlider.addEventListener("change", changeSize);
-var size;
 
 function changeSize(event) {
-    size = event.target.value;
-    clearDivBlocks();
-    drawingPad.setAttribute("style", "grid-template-columns: repeat(" + size + " ,1fr)");
-    sizeOfDrawingPad(size * size);
-    sketchPad();
+    let size = event.target.value;
+    removeOldSketchPad();
+    sketchPad.setAttribute("style", "grid-template-columns: repeat(" + size + " ,1fr)");
+    createSketchPad(size * size);
+    assignPenColor();
     changeBackgroundColor();
 }
 
-function clearDivBlocks () {
-    while (drawingPad.firstChild) {
-        drawingPad.removeChild(drawingPad.firstChild);
+function removeOldSketchPad () {
+    while (sketchPad.firstChild) {
+        sketchPad.removeChild(sketchPad.firstChild);
     };
 }
 
-//addEventListener to boxes in the Sketch Pad
-let coloring = '#000000';
+//Assign pen color
+window.addEventListener("load", assignPenColor, false)
+const defaultPenColor = "#000000"
+let penColor = defaultPenColor;
 
-function sketchPad() {
+function assignPenColor() {
     boxes = document.querySelectorAll('.boxes');
-    let color = "background-color: " + coloring;
+    let color = "background-color: " + penColor;
+    console.log(color)
 
     for (let i = 0; i < boxes.length; i++) {
         boxes.item(i).addEventListener('mouseover', () => {
@@ -49,22 +48,23 @@ function sketchPad() {
     }
 }
 
-//Changing colors
+//Change pen color
+window.addEventListener("load", getPenColorFromPicker, false)
 const colorFromPicker = document.querySelector(".color-picker");
 
-function getColor() {
-    // colorFromPicker.value = coloring;
-    colorFromPicker.addEventListener("input", changeColor, false);
-    colorFromPicker.addEventListener("change", changeColor, false);
+function getPenColorFromPicker() {
+    colorFromPicker.addEventListener("input", changePenColor, false);
+    colorFromPicker.addEventListener("change", changePenColor, false);
 }
 
-function changeColor (event) {
-    coloring = event.target.value;
-    sketchPad();
+function changePenColor (event) {
+    penColor = event.target.value;
+    assignPenColor();
 }
 
 //Change background color
-let backgroundColor = "#ffffff";
+const defaultBackgroundColor = "#ffffff"
+let backgroundColor = defaultBackgroundColor;
 let boxes = document.querySelectorAll('.boxes');
 const backgroundColorPicker = document.querySelector(".background-color-picker");
 
@@ -77,26 +77,24 @@ function getBackgroundColor(event) {
 }
 
 function changeBackgroundColor () {
-    console.log(backgroundColor)
-    console.log(boxes)
     for (let i = 0; i < boxes.length; ++i) {
         boxes.item(i).setAttribute('style', "background-color: " + backgroundColor)
     }
 }
 
 //Eraser for Sketch Pad
-const eraserButton = document.querySelector(".eraser");
-eraserButton.addEventListener("change", erase, false)
+const eraserSwitch = document.querySelector(".eraser");
+eraserSwitch.addEventListener("change", eraserCheck, false)
 
-function erase (event) {
+function eraserCheck (event) {
     if (event.target.checked) {
-        erasing();
+        eraser();
     } else {
-        sketchPad();
+        assignPenColor();
     }
 }
 
-function erasing () {
+function eraser () {
     const boxes = document.querySelectorAll('.boxes');
 
         for (let i = 0; i < boxes.length; i++) {
@@ -114,7 +112,6 @@ function clear () {
     for (let i = 0; i < boxes.length; ++i) {
         boxes.item(i).setAttribute('style', "background-color: white")
     }
-    erasing()
 }
 
 
