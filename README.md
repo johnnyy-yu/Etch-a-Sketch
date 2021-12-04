@@ -6,7 +6,7 @@ This project is based on the classic drawing toy, "Etch-a-Sketch", that can now 
 Learning Outcomes From This Project:
 - Improved understanding of EventHandlers and Javascript
 - Introduction to CSS Grids
-- Learned new HTML elements, such as "<input>"
+- Learned new HTML elements, such as "input"
 
 ---------------------
 
