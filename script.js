@@ -4,9 +4,9 @@ const defaultSize = 32
 
 function createSketchPad(size) {
     for (let i = 0; i < size; i++) {
-        let boxes = document.createElement('div')
-        boxes.className = "boxes"
-        sketchPad.append(boxes)
+        let boxes = document.createElement('div');
+        boxes.className = "boxes";
+        sketchPad.append(boxes);
     }
 }
 
@@ -39,7 +39,6 @@ let penColor = defaultPenColor;
 function assignPenColor() {
     boxes = document.querySelectorAll('.boxes');
     let color = "background-color: " + penColor;
-    console.log(color)
 
     for (let i = 0; i < boxes.length; i++) {
         boxes.item(i).addEventListener('mouseover', () => {

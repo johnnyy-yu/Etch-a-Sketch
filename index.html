@@ -2,38 +2,49 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <Title>Etch-a-Sketch</Title>
-        <link rel="stylesheet" href = "./style.css">
+        <title>Etch-a-Sketch!</title>
+        <link rel="stylesheet" href="./style.css" defer>
     </head>
     <body>
-        <div class="header">
-            <h1>Etch-a-Sketch</h1>
-        </div>
-        <div class="content">
-            <div class="controls">
-                <div class="size-slider">
-                    <input type="range" min="1" max="64" step="1" list="tickmarks" class="slider">
-                    <datalist id="tickmarks">
-                        <option value="1"></option>
-                        <option value="32"></option>
-                        <option value="64"></option>
-                    </datalist>
-                </div>
-                <div class="color">
-                    <label>Color</label>
-                    <input type="color" class="color-picker">
-                </div>
-                <div class="background-color">
-                    <label>Background Color</label>
-                    <input type="color" class="background-color-picker">
-                </div>
-                <label class="switch"> Eraser
-                    <input type="checkbox" class="eraser">
-                    <span class="slider round"></span>
-                </label>
-                <button class="clear">Shake Me!</button>
+        <div class="controls">
+            <div class="container">
+                <div class="control-header">Etch-a-Sketch</div>
+                <div class="header-content">but with Color!</div>
             </div>
-            <div class="sketch-pad"></div>
+            <div class="content">
+                <div class="labels">
+                    <label>Size Slider</label>
+                    <label>Color</label>
+                    <label>Background Color</label>
+                    <label>Eraser</label>
+                </div>
+                <div class="inputs">
+                    <input type="range" min="1" max="64" step="1" list="tickmarks" class="slider">
+                        <datalist id="tickmarks">
+                            <option value="1"></option>
+                            <option value="32"></option>
+                            <option value="64"></option>
+                        </datalist>
+                    <input type="color" class="color-picker">
+                    <input type="color" class="background-color-picker">
+                    <input type="checkbox" class="eraser">
+                </div>
+            </div>
+            <button class="clear">Shake Me!</button>
+        </div>
+        <div class="sketch-a-etch">
+            <div class="header">
+                <h1>Etch-a-Sketch</h1>
+            </div>
+            <div class="screen">
+                <div class="screen-container">
+                    <div class="sketch-pad"></div>
+                </div>
+            </div>
+            <div class="knobs">
+                <span class="circle"></span>
+                <span class="circle"></span>
+            </div>
         </div>
     </body>
     <script src="./script.js" defer></script>
