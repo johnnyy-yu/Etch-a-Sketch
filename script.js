@@ -112,6 +112,8 @@ function clear () {
     for (let i = 0; i < boxes.length; ++i) {
         boxes.item(i).setAttribute('style', "background-color: white")
     }
+
+    backgroundColor = defaultBackgroundColor
 }
 
 
