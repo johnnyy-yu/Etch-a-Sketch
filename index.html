@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <Title>Etch-a-Sketch</Title>
+        <link rel="stylesheet" href = "./style.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Etch-a-Sketch</h1>
+        </div>
+        <div class="content">
+            <div class="controls">
+                <div class="size-slider">
+                    <input type="range" min="1" max="64" step="1" list="tickmarks" class="slider">
+                    <datalist id="tickmarks">
+                        <option value="1"></option>
+                        <option value="32"></option>
+                        <option value="64"></option>
+                    </datalist>
+                </div>
+                <div class="color">
+                    <label>Color</label>
+                    <input type="color" class="color-picker">
+                </div>
+                <div class="background-color">
+                    <label>Background Color</label>
+                    <input type="color" class="background-color-picker">
+                </div>
+                <label class="switch"> Eraser
+                    <input type="checkbox" class="eraser">
+                    <span class="slider round"></span>
+                </label>
+                <button class="clear">Shake Me!</button>
+            </div>
+            <div class="sketch-pad"></div>
+        </div>
+    </body>
+    <script src="./script.js" defer></script>
+</html>
