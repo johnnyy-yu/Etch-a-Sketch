@@ -1,7 +1,7 @@
 
 .sketch-pad{
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
+    grid-template-columns: repeat(32, 1fr);
     width: 400px;
     height: 400px;
     border: 40px solid yellow;
