@@ -14,6 +14,7 @@ To see a live demo: https://johnnyy-yu.github.io/Etch-a-Sketch/
 
 ----------------------
 
+![Screenshot](https://user-images.githubusercontent.com/93222500/144723630-9242f49e-2752-4251-9c10-48c521fe8849.png)
 
 ----------------------
 
