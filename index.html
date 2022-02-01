@@ -1,51 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Etch-a-Sketch!</title>
-        <link rel="stylesheet" href="./style.css" defer>
-    </head>
-    <body>
-        <div class="controls">
-            <div class="container">
-                <div class="control-header">Etch-a-Sketch</div>
-                <div class="header-content">but with Color!</div>
+  <head>
+    <meta charset="utf-8" />
+    <title>Etch-a-Sketch!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/etch-a-sketch-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./style.css" defer />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish">
+  </head>
+  <body>
+    <header>
+      <img src="./img/etch-a-sketch-icon.png" alt="">
+      <div class="heading">
+        <h1>Etch-a-Sketch</h1>
+        <span>but with Color!</span>
+      </div>
+    </header>
+    <main>
+      <div class="sketch-a-etch">
+        <div class="screen">
+          <div class="controls">
+            <div>
+              Size Slider
+              <input
+                type="range"
+                min="1"
+                max="64"
+                step="1"
+                list="tickmarks"
+                class="slider"
+                value="32"
+                id="size"
+              />
+              <datalist id="tickmarks">
+                <option value="1"></option>
+                <option value="32"></option>
+                <option value="64"></option>
+              </datalist>
             </div>
-            <div class="content">
-                <div class="labels">
-                    <label>Size Slider</label>
-                    <label>Color</label>
-                    <label>Background Color</label>
-                    <label>Eraser</label>
-                </div>
-                <div class="inputs">
-                    <input type="range" min="1" max="64" step="1" list="tickmarks" class="slider">
-                        <datalist id="tickmarks">
-                            <option value="1"></option>
-                            <option value="32"></option>
-                            <option value="64"></option>
-                        </datalist>
-                    <input type="color" class="color-picker">
-                    <input type="color" class="background-color-picker">
-                    <input type="checkbox" class="eraser">
-                </div>
+            <div>
+              <label for="pen-color">Color</label>
+              <input type="color" class="color-picker" id="pen-color"/>
             </div>
+            <div>
+              <label for="background-color">Background Color</label>
+              <input type="color" class="background-color-picker" id="background-color"/>
+            </div>
+            <div>
+              <label for="eraser">Eraser</label>
+              <input type="checkbox" class="eraser" id="eraser"/>
+            </div>
+          </div>
+          <div class="screen-container">
+            <div class="sketch-pad"></div>
+          </div>
+        </div>
+        <div class="knobs">
+          <div class="knob"></div>
+          <div class="settings">
+            <button class="options">Options</button>
             <button class="clear">Shake Me!</button>
+          </div>
+          <div class="knob"></div>
         </div>
-        <div class="sketch-a-etch">
-            <div class="header">
-                <h1>Etch-a-Sketch</h1>
-            </div>
-            <div class="screen">
-                <div class="screen-container">
-                    <div class="sketch-pad"></div>
-                </div>
-            </div>
-            <div class="knobs">
-                <span class="circle"></span>
-                <span class="circle"></span>
-            </div>
-        </div>
-    </body>
-    <script src="./script.js" defer></script>
+      </div>
+    </main>
+    <footer>
+      Made by Jylx
+      <a class="github" href= "https://github.com/jylx-x/Etch-a-Sketch">
+          <img id="icon" src="./img/GitHub-Mark-32px.png">
+      </a>
+    </footer>
+  </body>
+  <script src="./script.js" defer></script>
 </html>
